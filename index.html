@@ -6,14 +6,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Quiz App</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet"
-    type="text/css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" type="text/css" />
   <link href="app.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-  <header></header>
-  <main></main>
+  <header>
+    <!-- this doesn't change -->
+    <section id="title">
+      <h1>Quiz<br>Against<br>Humanity.</h1>
+      <p>A trivia game<br>for weird people.</p>
+    </section>
+
+    <!-- will be empty unless game has started -->
+    <section id="info">
+      <p>Score: <span>0</span></p>
+      <p>Question: <span>1/10</span></p>
+    </section>
+  </header>
+
+  <main>
+    <!-- start screen -->
+    <div class="container">
+      <section id="middle">
+        <button id="startGame">Start Game</button>
+      </section>
+      <section id="bottom">
+        <div class="credits">
+          <h3>Quiz Against Humanity 1.0</h3>
+          <p>
+            Designed & developed by<br>
+            <a id="rg" href="https://github.com/Vicious27" target="_blank">@vicious27</a> and <a id="mk" href="https://github.com/malcolmkiano" target="_blank">@malcolmkiano</a>
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- game screen -->
+    <!-- <form class="container">
+      <section id="middle">
+        <article>
+          <p id="question" class="card card-question">
+            <span>Your question goes here.</span>
+          </p>
+          <p id="answer" class="card">
+            <span>Your answer goes here.</span>
+          </p>
+        </article>
+      </section>
+      <section id="bottom">
+        <div class="cards">
+          <label for="answer1" class="card card-correct">
+            <input type="radio" checked name="answer" value="1" id="answer1">
+            <span>Hello my name is ufhskfjhdkfjhskd sdjkfhksdjfh sdjkfhksd djsfhkjh</span>
+          </label>
+          <label for="answer2" class="card">
+            <input type="radio" name="answer" value="2" id="answer2">
+            <span>Option 1.</span>
+          </label>
+          <label for="answer3" class="card">
+            <input type="radio" name="answer" value="3" id="answer3">
+            <span>Option 1.</span>
+          </label>
+          <label for="answer4" class="card">
+            <input type="radio" name="answer" value="4" id="answer4">
+            <span>Option 1.</span>
+          </label>
+        </div>
+      </section>
+    </form> -->
+
+    <!-- result screen -->
+    <!-- <div class="container">
+      <section id="middle">
+        <article id="result">
+          <h2>Wow...</h2>
+          <p>
+            You only managed to get <b>3</b> questions right.<br>
+            Go read a book or something.
+          </p>
+          <button class="btn-small" id="restart">Start Over</button>
+        </article>
+      </section>
+      <section id="bottom">
+        <div class="credits">
+          <h3>Quiz Against Humanity 1.0</h3>
+          <p>
+            Designed & developed by<br>
+            <a id="rg" href="https://github.com/Vicious27" target="_blank">@vicious27</a> and <a id="mk" href="https://github.com/malcolmkiano" target="_blank">@malcolmkiano</a>
+          </p>
+        </div>
+      </section>
+    </div> -->
+  </main>
+
   <script src="https://code.jquery.com/jquery-3.4.1.slim.js" crossorigin="anonymous"></script>
   <script src="app.js"></script>
 </body>
