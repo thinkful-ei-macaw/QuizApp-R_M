@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Quiz App</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" type="text/css" />
+  <link href="../app.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header>
+    <section id="title">
+      <h1>Quiz<br>Against<br>Humanity.</h1>
+      <p>A trivia game<br>for weird people.</p>
+    </section>
+
+    <section id="info">
+      <p>Score: <span>0</span></p>
+      <p>Question: <span>1/10</span></p>
+    </section>
+  </header>
+
+  <main>
+    <form class="container">
+      <section id="middle">
+        <article>
+          <p id="question" class="card card-question">
+            <span>Your question goes here.</span>
+          </p>
+          <p id="answer" class="card">
+            <span>Your answer goes here.</span>
+          </p>
+        </article>
+      </section>
+      <section id="bottom">
+        <div class="cards">
+          <label for="answer1" class="card card-correct">
+            <input type="radio" checked name="answer" value="1" id="answer1">
+            <span>This is the correct answer.</span>
+          </label>
+          <label for="answer2" class="card">
+            <input type="radio" name="answer" value="2" id="answer2">
+            <span>Something else to distract you.</span>
+          </label>
+          <label for="answer3" class="card">
+            <input type="radio" name="answer" value="3" id="answer3">
+            <span>Some random fact that's close to the truth.</span>
+          </label>
+          <label for="answer4" class="card">
+            <input type="radio" name="answer" value="4" id="answer4">
+            <span>You should get the point by now.</span>
+          </label>
+        </div>
+      </section>
+    </form>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.js" crossorigin="anonymous"></script>
+  <script src="../app.js"></script>
+</body>
+
+</html>
