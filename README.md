@@ -9,5 +9,5 @@ Links to different wireframe screens:
 - [x] Style the wireframes using CSS
 - [x] Code and add questions to the store
 - [x] Code all the listener functions as well as render functions
-- [ ] Code quiz app logic
-- [ ] Conquer the world
+- [x] Code quiz app logic
+- [ ] Conquer the world _(working on it)_

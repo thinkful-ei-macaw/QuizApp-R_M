@@ -4,11 +4,11 @@
  */
 const STORE = {
   quizStarted: false,
-  quizFinished: false,
   questionNumber: 0,
+  questionAnswered: false,
+  selectedAnswer: '',
   score: 0,
 
-  // 5 or more questions are required
   questions: [
     {
       question: 'The FDA allows an average of _____ per 100 grams of peanut butter manufactured.',
@@ -19,7 +19,6 @@ const STORE = {
         'Three insect legs'
       ],
       correctAnswer: 'One rodent hair',
-      source: 'http://www.fda.gov/food/guidanceregulation/guidancedocumentsregulatoryinformation/sanitationtransportation/ucm056174.htm#CHPT3'
     },
     {
       question: 'Jelly beans get their shine from shellac, which is made from _____.',
@@ -30,7 +29,6 @@ const STORE = {
         'Corn syrup'
       ],
       correctAnswer: 'Insect poop',
-      source: 'http://www.health.com/health/gallery/0,,20588763,00.html#shellac-0'
     },
     {
       question: 'There are over _____ on Mount Everest.',
@@ -41,7 +39,6 @@ const STORE = {
         '200 corpses of climbers and sherpas'
       ],
       correctAnswer: '200 corpses of climbers and sherpas',
-      source: 'http://www.bbc.com/future/story/20151008-the-graveyard-in-the-clouds-everests-200-dead-bodies'
     },
     {
       question: 'There is an island near mexico city full of _______.',
@@ -51,8 +48,7 @@ const STORE = {
         'Smelly diapers',
         'Creepy decaying dolls'
       ],
-      correctAnswer: 'Creepy decaying dolls',
-      source: 'https://www.atlasobscura.com/places/la-isla-de-las-munecas'
+      correctAnswer: 'Creepy decaying dolls'
     },
     {
       question: 'You can get _____ from a koala\'s cuddle.',
@@ -62,8 +58,7 @@ const STORE = {
         'A terrible, terrible rash',
         'Shocked'
       ],
-      correctAnswer: 'Chlamydia',
-      source: 'http://io9.gizmodo.com/5920738/you-can-accidentally-get-an-std-from-a-koala'
+      correctAnswer: 'Chlamydia'
     },
   ]
 };
