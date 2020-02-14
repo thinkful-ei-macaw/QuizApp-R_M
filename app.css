@@ -26,11 +26,11 @@ p {
 
 /* link styling */
 #rg {
-  color: aqua
+  color: aqua;
 }
 
 #mk {
-  color: gold
+  color: gold;
 }
 
 
@@ -45,6 +45,9 @@ header {
 
 #info {
   text-align: right;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
 }
 
 #info span {
