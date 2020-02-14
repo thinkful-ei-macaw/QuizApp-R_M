@@ -7,7 +7,7 @@ Links to different wireframe screens:
 ## TODO:
 - [x] Create HTML wireframes
 - [x] Style the wireframes using CSS
-- [ ] Code and add questions to the store
-- [ ] Code all the listener functions as well as render functions
+- [x] Code and add questions to the store
+- [x] Code all the listener functions as well as render functions
 - [ ] Code quiz app logic
 - [ ] Conquer the world
