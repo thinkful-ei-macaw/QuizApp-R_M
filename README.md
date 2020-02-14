@@ -1,5 +1,4 @@
 # Quiz App Project
-This is it!
 Links to different wireframe screens:
 - [Start Screen](https://thinkful-ei-macaw.github.io/quiz-app-rm/wireframes/start-screen.html)
 - [Game Screen](https://thinkful-ei-macaw.github.io/quiz-app-rm/wireframes/game-screen.html)
