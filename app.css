@@ -35,6 +35,10 @@ h1 {
   margin: 0;
 }
 
+h2 {
+  margin: 0 0 .7em;
+}
+
 p {
   margin: 0;
 }
@@ -70,7 +74,7 @@ header {
   position: fixed;
   top: 4rem;
   right: 2rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   padding: inherit;
 }
 
@@ -128,6 +132,61 @@ main, .container {
   opacity: 0.75;
 }
 
+.credits {
+  padding: 2em 4em 4em;
+}
+
+
+
+/* ==================================================== */
+/* FEEDBACK STYLES */
+/* ==================================================== */
+
+#feedback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.329);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  text-align: center;
+}
+
+#feedback article {
+  background: white;
+  color: black;
+  width: 80%;
+  max-width: 600px;
+  padding: 2em;
+}
+
+#feedback h2 {
+  font-size: 2em;
+  color: #342525;
+}
+
+#feedback p {
+  line-height: 1.2;
+  font-size: 1.2em;
+  margin-bottom: .8em;
+}
+
+#feedback span {
+  font-weight: bold;
+}
+
+#feedback span.wrong {
+  color: red;
+}
+
+#feedback span.right {
+  color: #38B402; 
+}
+
 
 
 /* ==================================================== */
@@ -151,36 +210,50 @@ main, .container {
 /* BUTTON STYLES */
 /* ==================================================== */
 
-button {
+.btn {
   cursor: pointer;
-  font-size: 1.5rem;
   font-weight: bold;
-  padding: 1em 3em;
   outline: none;
   border: none;
-  border-radius: .5em;
-  border-bottom: .3em solid rgb(196, 181, 181);
-  font-family: inherit;
-  background: white;
   transition: all .1s ease;
 }
 
-button:hover {
+.btn-default {
+  font-size: 1.5rem;
+  padding: 1em 3em;
+  border-radius: .5em;
+  border-bottom: .3em solid rgb(196, 181, 181);
+  background: white;
+}
+
+.btn-default:hover {
   transform: translateY(.1em);
   border-bottom-width: .2em;
 }
 
-button:active {
+.btn-default:active {
   transform: translateY(.2em);
   border-bottom-width: 0;
 }
 
-.btn-small {
-  font-size: .8em;
+.btn-alt {
+  display: block;
+  position: relative;
+  width: calc(100% + 4em);
+  font-size: inherit;
+  padding: 1.5em 0;
+  margin: 2em -2em -2em;
+  background: #232323;
+  color: white;
+  text-transform: uppercase;
 }
 
-.credits {
-  padding: 2em 4em 4em;
+.btn-alt:hover {
+  background: black;
+}
+
+.btn-small {
+  font-size: .8em;
 }
 
 
@@ -204,6 +277,7 @@ button:active {
   box-shadow: -1em 1em 0 0 rgba(0, 0, 0, .5);
   line-height: 1.3;
   font-weight: bold;
+  overflow: hidden;
 }
 
 .card span {
@@ -216,25 +290,11 @@ button:active {
 }
 
 .card input[type=submit]{
-  text-align: center;
-  cursor: pointer;
-  font-size: .8em;
+  font-size: .7em;
   font-weight: bold;
-  padding: .8em 1em;
-  outline: none;
-  border: none;
-  font-family: inherit;
-  background:black;
-  color: white;
-  transition: background .1s ease;
-}
-
-.card input[type=submit]:hover {
-  background: #3f3f3f;
-}
-
-.card input[type=submit]:active {
-  transform: scale(.95)
+  padding: 1.2rem 1rem;
+  margin: -1.2rem -1.2rem;
+  width: calc(100% + 2.4rem)
 }
 
 .card-question{
