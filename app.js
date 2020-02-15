@@ -1,4 +1,5 @@
 'use strict';
+/* global STORE, $ */
 
 /**
  *Performs the initial render and begins listening for events 
@@ -43,7 +44,7 @@ function checkAnswer() {
  *Updates the visuals to show correct and incorrect answers
  *(this one's kinda hacky)
 */
-function giveFeedback(answer) {
+function giveFeedback() {
   $('main').addClass('unclickable');
 
   // set an answered state?
@@ -77,7 +78,7 @@ function gradeResults() {
     obj.message = `It takes a certain kind of person to get only ${STORE.score} question(s) right.<br>We're praying for you.`;
   } else {
     obj.title = '👀 Yikes...';
-    obj.message = `We <em>literally cannot</em> understand how you didn't get anything right. Good job?`;
+    obj.message = 'We <em>literally cannot</em> understand how you didn\'t get anything right. Good job?';
   }
 
   return obj;
@@ -148,8 +149,6 @@ function cardHoverHandler() {
 function formSubmitHandler() {
   $('main').on('submit', 'form', e => {
     e.preventDefault();
-    let element = $('main').find('form input:checked')[0];
-    let text = $(element).val();
     checkAnswer();
   });
 }
@@ -300,7 +299,7 @@ function renderResultsPage() {
     </section>
   </div>
   `;
-};
+}
 
 
 
