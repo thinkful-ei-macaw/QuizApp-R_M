@@ -170,7 +170,7 @@ main, .container {
 }
 
 #feedback p {
-  line-height: 1.2;
+  line-height: 1.3;
   font-size: 1.2em;
   margin-bottom: .8em;
 }
@@ -215,6 +215,7 @@ main, .container {
   font-weight: bold;
   outline: none;
   border: none;
+  text-decoration: none;
   transition: all .1s ease;
 }
 
@@ -363,11 +364,11 @@ main, .container {
 /* RESPONSIVE STYLES + FIXES */
 /* ==================================================== */
 
-@media screen and (max-width: 900px){
+/* @media screen and (max-width: 900px){
   input[type=submit] {
     display: none !important;
   }
-}
+} */
 
 @media screen and (min-width: 640px){
   #result p {

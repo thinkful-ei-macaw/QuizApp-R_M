@@ -33,11 +33,6 @@ function checkAnswer() {
     STORE.score++;
   }
   giveFeedback(correctAnswer);
-  setTimeout(() => {
-    $('main').removeClass('unclickable');
-    STORE.questionAnswered = false;
-    nextQuestion();
-  }, 2000);
 }
 
 /**
@@ -45,9 +40,6 @@ function checkAnswer() {
  *(this one's kinda hacky)
 */
 function giveFeedback() {
-  $('main').addClass('unclickable');
-
-  // set an answered state?
   STORE.questionAnswered = true;
   render();
 }
@@ -57,6 +49,7 @@ function giveFeedback() {
 */
 function nextQuestion() {
   // go to the next question, or end the game
+  STORE.questionAnswered = false;
   STORE.selectedAnswer = '';
   STORE.questionNumber++;
   render();
@@ -99,6 +92,7 @@ function addHandlers() {
   cardHoverHandler();
   formSubmitHandler();
   restartGameHandler();
+  nextHandler();
 }
 
 /**
@@ -153,6 +147,15 @@ function formSubmitHandler() {
   });
 }
 
+/**
+ *Listenes for next question button click and goes to next
+*/
+function nextHandler() {
+  $('main').on('click', '#nextButton', e => {
+    e.preventDefault();
+    nextQuestion();
+  });
+}
 
 
 // =============================================================
@@ -188,7 +191,7 @@ function renderStartPage() {
   return `
   <div class="container">
     <section id="middle">
-      <button id="startGame">Start Game</button>
+      <button class="btn btn-default" id="startGame">Start Game</button>
     </section>
     <section id="bottom">
       <div class="credits">
@@ -211,6 +214,7 @@ function renderGamePage() {
   return `
   ${renderScoreAndQuestionNumber()}
   <form class="container">
+    ${STORE.questionAnswered === true ? renderFeedback() : ''}
     ${renderQuestion(currentQuestion)}
     ${renderAnswers(currentQuestion)}
   </form>
@@ -230,6 +234,38 @@ function renderScoreAndQuestionNumber() {
 }
 
 /**
+ *Returns the feedback (if the question was answered)
+*/
+function renderFeedback() {
+  let q = STORE.questions[STORE.questionNumber];
+  let a = STORE.selectedAnswer;
+  let isCorrectAnswer = (a === q.correctAnswer);
+  let isLastQuestion = (STORE.questionNumber === STORE.questions.length - 1);
+  return `
+  <section id="feedback">
+    <article>
+      ${isCorrectAnswer === true ? `
+      <h2>Nice!</h2>
+      <p>
+        '<span class="right">${a}</span>' was the right answer.<br>
+        Let's see if you can keep it up.
+      </p>
+      <p>Go you! 🙄</p>
+      ` : `
+      <h2>Whoops!</h2>
+      <p>
+        '<span class="wrong">${a}</span>' wasn't the right answer.<br>
+        If you were smarter, you would have picked '<span class="right">${q.correctAnswer}</span>'.
+      </p>
+      <p>Oh, well. 🤷‍♂️</p>
+      `}
+      <a href="#" id="nextButton" class="btn btn-alt">${isLastQuestion ? 'See my results' : 'Next Question'}</a>
+    </article>
+  </section>
+  `;
+}
+
+/**
  *Returns the question template
 */
 function renderQuestion(q) {
@@ -241,7 +277,7 @@ function renderQuestion(q) {
       </p>
       <p id="answer" class="card">
         <span>${STORE.selectedAnswer ? STORE.selectedAnswer : 'Your answer goes here.'}</span>
-        <input type="submit" value="Click here to submit" />
+        <input class="btn btn-alt" type="submit" value="Click here to submit" />
       </p>
     </article>
   </section>
@@ -285,7 +321,7 @@ function renderResultsPage() {
         <h2>${gradeResults().title}</h2>
         <p>${gradeResults().message}</p>
         <p>See all the facts <a href="https://www.buzzfeed.com/matwhitehead/gross-facts" target="_blank">here</a>!</p>
-        <button class="btn-small" id="restart">Start Over</button>
+        <button class="btn btn-default btn-small" id="restart">Start Over</button>
       </article>
     </section>
     <section id="bottom">
