@@ -231,12 +231,9 @@ function render() {
   if (STORE.quizStarted === true && STORE.questionNumber < STORE.questions.length) {
     // render game page
     $('main').html(renderGamePage());
-  } else if (STORE.quizStarted === false) {
-    // render start page
-    $('main').html(renderStartPage());
   } else {
-    // end game
-    $('main').html(renderResultsPage());
+    // show other pages
+    $('main').html(renderMainPage());
   }
 }
 
@@ -249,15 +246,24 @@ function render() {
 /**
  *Returns the start page template
 */
-function renderStartPage() {
+function renderMainPage() {
   return `
   <div class="container">
     <section id="middle">
+      ${STORE.quizStarted === false ? `
       <button class="btn btn-default" id="startGame">Start Game</button>
+      ` : `
+      <article id="result">
+        <h2>${gradeResults().title}</h2>
+        <p>${gradeResults().message}</p>
+        <p>See all the facts <a href="https://www.buzzfeed.com/matwhitehead/gross-facts" target="_blank">here</a>!</p>
+        <button class="btn btn-default btn-small" id="restart">Start Over</button>
+      </article>
+      `}
     </section>
     <section id="bottom">
       <div class="credits">
-        <h3>Quiz Against Humanity 1.0</h3>
+        <h3>Quiz Against Humanity 1.1</h3>
         <p>
           Designed & developed by<br>
           <a id="rg" href="https://github.com/Vicious27" target="_blank">@vicious27</a> 
@@ -370,34 +376,6 @@ function renderAnswers(q) {
       ${answersHTML}
     </div>
   </section>
-  `;
-}
-
-/**
- *Returns the start results page template
-*/
-function renderResultsPage() {
-  return `
-  <div class="container">
-    <section id="middle">
-      <article id="result">
-        <h2>${gradeResults().title}</h2>
-        <p>${gradeResults().message}</p>
-        <p>See all the facts <a href="https://www.buzzfeed.com/matwhitehead/gross-facts" target="_blank">here</a>!</p>
-        <button class="btn btn-default btn-small" id="restart">Start Over</button>
-      </article>
-    </section>
-    <section id="bottom">
-      <div class="credits">
-        <h3>Quiz Against Humanity 1.0</h3>
-        <p>
-          Designed & developed by<br>
-          <a id="rg" href="https://github.com/Vicious27" target="_blank">@vicious27</a>
-           and <a id="mk" href="https://github.com/malcolmkiano" target="_blank">@malcolmkiano</a>
-        </p>
-      </div>
-    </section>
-  </div>
   `;
 }
 
