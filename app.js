@@ -10,6 +10,40 @@ function init() {
 }
 
 
+// =============================================================
+// INTERFACE FUNCTIONS
+// =============================================================
+
+/**
+ *Demonstrates that users can scroll options on smaller screens
+*/
+function demonstrateScroll() {
+  let width = $('body').outerWidth();
+  if (width < 720) {
+    setTimeout(() => {
+      let bottom = $('main').find('#bottom .cards');
+      bottom.animate({
+        scrollLeft: bottom.outerWidth() / 2
+      }, {
+        duration: 800,
+        complete: () => {
+          bottom.animate({ scrollLeft: 0 }, 800);
+        }
+      });
+    }, 400);
+  }
+}
+
+/**
+ *Scrolls to the correct answer to give feedback
+*/
+function scrollToAnswer() {
+  let bottom = $('main').find('#bottom .cards');
+  let cardOffset = $('main').find('.card-correct').offset().left;
+  bottom.scrollLeft(cardOffset - 60);
+}
+
+
 
 // =============================================================
 // GAME LOGIC FUNCTIONS
@@ -42,6 +76,7 @@ function checkAnswer() {
 function giveFeedback() {
   STORE.questionAnswered = true;
   render();
+  scrollToAnswer();
 }
 
 /**
@@ -62,13 +97,16 @@ function gradeResults() {
   let obj = { title: '', message: '' };
   if (STORE.score >= .8 * STORE.questions.length) {
     obj.title = '🎉 Good job!';
-    obj.message = `You got ${STORE.score} question(s) correct!<br>Someone should give you a ribbon!`;
+    obj.message = `You got ${STORE.score} question(s) correct!<br>
+                  Someone should give you a ribbon!`;
   } else if (STORE.score >= .5 * STORE.questions.length) {
     obj.title = '😨 Wow...';
-    obj.message = `You only managed to get ${STORE.score} question(s) right.<br>Go read a book or something.`;
+    obj.message = `You only managed to get ${STORE.score} question(s) right.<br>
+                  Go read a book or something.`;
   } else if (STORE.score > 0) {
     obj.title = '🤔 Hmmm...';
-    obj.message = `It takes a certain kind of person to get only ${STORE.score} question(s) right.<br>We're praying for you.`;
+    obj.message = `It takes a certain kind of person to get only ${STORE.score} question(s) right.<br>
+                  We're praying for you.`;
   } else {
     obj.title = '👀 Yikes...';
     obj.message = 'We <em>literally cannot</em> understand how you didn\'t get anything right. Good job?';
@@ -102,6 +140,7 @@ function startGameHandler() {
   $('main').on('click', '#startGame', () => {
     STORE.quizStarted = true;
     render();
+    demonstrateScroll();
   });
 }
 
@@ -198,7 +237,8 @@ function renderStartPage() {
         <h3>Quiz Against Humanity 1.0</h3>
         <p>
           Designed & developed by<br>
-          <a id="rg" href="https://github.com/Vicious27" target="_blank">@vicious27</a> and <a id="mk" href="https://github.com/malcolmkiano" target="_blank">@malcolmkiano</a>
+          <a id="rg" href="https://github.com/Vicious27" target="_blank">@vicious27</a> 
+          and <a id="mk" href="https://github.com/malcolmkiano" target="_blank">@malcolmkiano</a>
         </p>
       </div>
     </section>
@@ -329,7 +369,8 @@ function renderResultsPage() {
         <h3>Quiz Against Humanity 1.0</h3>
         <p>
           Designed & developed by<br>
-          <a id="rg" href="https://github.com/Vicious27" target="_blank">@vicious27</a> and <a id="mk" href="https://github.com/malcolmkiano" target="_blank">@malcolmkiano</a>
+          <a id="rg" href="https://github.com/Vicious27" target="_blank">@vicious27</a>
+           and <a id="mk" href="https://github.com/malcolmkiano" target="_blank">@malcolmkiano</a>
         </p>
       </div>
     </section>
