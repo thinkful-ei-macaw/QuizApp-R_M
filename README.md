@@ -12,4 +12,7 @@ Links to different wireframe screens:
 - [x] Code and add questions to the store
 - [x] Code all the listener functions as well as render functions
 - [x] Code quiz app logic
+- [ ] Enhance accessibility by using textual feedback (as opposed to colors)
+- [ ] Add scrolling to focus on selected/correct answer
+- [ ] Enable touch submission for mobile devices
 - [ ] Conquer the world _(working on it)_
