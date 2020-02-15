@@ -1,6 +1,6 @@
 'use strict';
 /**
- * Example store structure
+ * Holds all of the app state and data
  */
 const STORE = {
   quizStarted: false,

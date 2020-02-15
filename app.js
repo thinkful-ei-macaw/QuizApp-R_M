@@ -1,4 +1,5 @@
 'use strict';
+
 /**
  *Performs the initial render and begins listening for events 
 */
@@ -7,7 +8,12 @@ function init() {
   render();
 }
 
-// game logic ============================================================
+
+
+// =============================================================
+// GAME LOGIC FUNCTIONS
+// =============================================================
+
 /**
  *Resets all the STORE properties to restart the game
 */
@@ -77,8 +83,14 @@ function gradeResults() {
   return obj;
 }
 
-// Handler functions ====================================================
+
+
+// =============================================================
+// HANDLER FUNCTIONS
+// =============================================================
+
 /**
+ * 
  *Sets up all event handlers
 */
 function addHandlers() {
@@ -142,7 +154,12 @@ function formSubmitHandler() {
   });
 }
 
-// render functions ==================================================
+
+
+// =============================================================
+// RENDER FUNCTION
+// =============================================================
+
 /**
  *Renders the whole page based on STORE values
 */
@@ -159,7 +176,12 @@ function render() {
   }
 }
 
-// template generation functions ======================================
+
+
+// =============================================================
+// TEMPLATE GENERATION FUNCTIONS
+// =============================================================
+
 /**
  *Returns the start page template
 */
@@ -280,5 +302,9 @@ function renderResultsPage() {
   `;
 };
 
-// DOM ready ==============================================================
+
+
+// =============================================================
+// DOM READY FUNCTION
+// =============================================================
 $(init);
