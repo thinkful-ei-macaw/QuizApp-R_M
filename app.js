@@ -234,11 +234,11 @@ function renderAnswers(q) {
   let answersHTML = '';
   for (let i = 0; i < q.answers.length; i++) {
     let answer = q.answers[i];
-    let isCheckedAnswer = STORE.selectedAnswer === answer ? true : !STORE.selectedAnswer ? i === 0 ? true : false : false;
+    let isCheckedAnswer = STORE.selectedAnswer === answer ? true : false;
 
     answersHTML += `
     <label for="answer${i}" class="card ${STORE.questionAnswered === true ? answer === q.correctAnswer ? 'card-correct' : '' : ''}">
-      <input type="radio" ${isCheckedAnswer === true ? 'checked' : ''} name="answer" value="${answer}" id="answer${i}">
+      <input required type="radio" ${isCheckedAnswer === true ? 'checked' : ''} name="answer" value="${answer}" id="answer${i}">
       <span>${answer}</span>
     </label>
     `;

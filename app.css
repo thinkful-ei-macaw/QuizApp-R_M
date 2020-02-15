@@ -3,9 +3,12 @@
   user-select: none;
 }
 
-body, html {
+html {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 1.7vh;
+}
+
+body, html {
   margin: 0;
   height: 100%;
   overflow: hidden;
@@ -50,10 +53,11 @@ header {
 
 #info {
   text-align: right;
-  position: absolute;
+  position: fixed;
   top: 4rem;
   right: 2rem;
   font-size: 1.5rem;
+  padding: inherit;
 }
 
 #info span {
@@ -93,6 +97,10 @@ main, .container {
   z-index: 1;
 }
 
+#bottom p {
+  opacity: 0.75;
+}
+
 /* other screen properties */
 #result {
   font-size: 2rem;
@@ -100,12 +108,14 @@ main, .container {
 }
 
 #result p{
+  margin: 0 auto;
+  max-width: 80%;
   margin-bottom: 2em;
 }
 
 button {
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   padding: 1em 3em;
   outline: none;
@@ -204,7 +214,8 @@ button:active {
   height: 100%;
   width: 100%;
   overflow: auto;
-  padding: 2em 4em;
+  font-size: .8rem;
+  padding: 3em 4em;
 }
 
 .cards:hover .card,
@@ -245,10 +256,29 @@ button:active {
     left: 0;
     height: 80%;
     width: 100%;
-    font-size: 12px;
   }
 
   #result {
     font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-height: 900px){
+  html {
+    font-size: 16px;
+  }
+}
+
+/* hide submit button on mobile screens */
+@media screen and (max-width: 900px){
+  input[type=submit] {
+    display: none !important;
+  }
+}
+
+/* tablet sizes */
+@media screen and (min-width: 640px){
+  #result p {
+    max-width: 100% !important;
   }
 }
