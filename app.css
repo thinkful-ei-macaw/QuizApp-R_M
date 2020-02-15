@@ -297,7 +297,8 @@ main, .container {
   font-weight: bold;
   padding: 1.2rem 1rem;
   margin: -1.2rem -1.2rem;
-  width: calc(100% + 2.4rem)
+  width: calc(100% + 2.4rem);
+  display: none;
 }
 
 .card-question{
@@ -372,8 +373,12 @@ main, .container {
   }
 }
 
-@media screen and (min-width: 640px){
+@media screen and (min-width: 500px){
   #result p {
     max-width: 100%;
+  }
+
+  .card input[type=submit]{
+    display: block;
   }
 }

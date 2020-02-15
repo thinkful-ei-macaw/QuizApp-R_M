@@ -2,11 +2,13 @@
 /**
  * Holds all of the app state and data
  */
+// eslint-disable-next-line no-unused-vars
 const STORE = {
   quizStarted: false,
   questionNumber: 0,
   questionAnswered: false,
   selectedAnswer: '',
+  demoCompleted: false,
   score: 0,
 
   questions: [

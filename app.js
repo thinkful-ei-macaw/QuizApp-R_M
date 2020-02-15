@@ -18,6 +18,7 @@ function init() {
  *Demonstrates that users can scroll options on smaller screens
 */
 function demonstrateScroll() {
+  STORE.demoCompleted = true;
   let width = $('body').outerWidth();
   if (width < 720) {
     setTimeout(() => {
@@ -38,9 +39,18 @@ function demonstrateScroll() {
  *Scrolls to the correct answer to give feedback
 */
 function scrollToAnswer() {
-  let bottom = $('main').find('#bottom .cards');
-  let cardOffset = $('main').find('.card-correct').offset().left;
-  bottom.scrollLeft(cardOffset - 60);
+  let width = $('body').outerWidth();
+  if (width < 720) {
+    let bottom = $('main').find('#bottom .cards');
+
+    // selected answer offset
+    let selectedOffset = $('main').find('input:checked').closest('.card').offset().left;
+    bottom.scrollLeft(selectedOffset - 60);
+
+    // correct answer offset
+    let correctOffset = $('main').find('.card-correct').offset().left;
+    bottom.animate({ scrollLeft: correctOffset - 60 }, 500);
+  }
 }
 
 
@@ -127,6 +137,7 @@ function gradeResults() {
 */
 function addHandlers() {
   startGameHandler();
+  cardClickHandler();
   cardHoverHandler();
   formSubmitHandler();
   restartGameHandler();
@@ -140,7 +151,7 @@ function startGameHandler() {
   $('main').on('click', '#startGame', () => {
     STORE.quizStarted = true;
     render();
-    demonstrateScroll();
+    if (STORE.demoCompleted === false) demonstrateScroll();
   });
 }
 
@@ -155,6 +166,28 @@ function restartGameHandler() {
 }
 
 /**
+ *Listens for click of the .card and submits (on mobile)
+*/
+function cardClickHandler() {
+  $('main').on('change', '.card', e => {
+    let element = $(e.target).closest('label').find('input');
+    let text = element.val();
+    STORE.selectedAnswer = text;
+
+    let width = $('body').outerWidth();
+
+    // auto submit on mobile devices
+    if (width < 500) {
+      element.closest('form').submit();
+    } else {
+      render();
+      $('main').find('input:checked').focus().click();
+    }
+  });
+}
+
+
+/**
  *Listens for hover of the .card and updates the answer card to match
 */
 function cardHoverHandler() {
@@ -162,17 +195,7 @@ function cardHoverHandler() {
     let element = $(e.target).closest('label');
     try {
       element.find('input').focus().click();
-    } catch (e) {
-      // ignore it
-    }
-  });
-
-  $('main').on('change', '.card', e => {
-    let element = $(e.target).closest('label').find('input');
-    let text = element.val();
-    STORE.selectedAnswer = text;
-    render();
-    $('main').find('input:checked').focus().click();
+    } catch (e) { /* ignored */ }
   });
 }
 
@@ -288,7 +311,7 @@ function renderFeedback() {
       <h2>Nice!</h2>
       <p>
         '<span class="right">${a}</span>' was the right answer.<br>
-        Let's see if you can keep it up.
+        So you <em>do</em> have a brain!
       </p>
       <p>Go you! 🙄</p>
       ` : `
