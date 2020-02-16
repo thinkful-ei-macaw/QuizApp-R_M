@@ -21,6 +21,7 @@ const STORE = {
         'Three insect legs'
       ],
       correctAnswer: 'One rodent hair',
+      source: 'http://www.fda.gov/food/guidanceregulation/guidancedocumentsregulatoryinformation/sanitationtransportation/ucm056174.htm#CHPT3'
     },
     {
       question: 'Jelly beans get their shine from shellac, which is made from _____.',
@@ -31,6 +32,7 @@ const STORE = {
         'Corn syrup'
       ],
       correctAnswer: 'Insect poop',
+      source: 'http://www.health.com/health/gallery/0,,20588763,00.html#shellac-0'
     },
     {
       question: 'There are over _____ on Mount Everest.',
@@ -41,16 +43,18 @@ const STORE = {
         '200 corpses of climbers and sherpas'
       ],
       correctAnswer: '200 corpses of climbers and sherpas',
+      source: 'http://www.bbc.com/future/story/20151008-the-graveyard-in-the-clouds-everests-200-dead-bodies'
     },
     {
-      question: 'There is an island near mexico city full of _______.',
+      question: 'There is an island near mexico city full of _____.',
       answers: [
         'Rabid alligators',
         'Blue flamingos',
         'Smelly diapers',
-        'Creepy decaying dolls'
+        'Decaying dolls'
       ],
-      correctAnswer: 'Creepy decaying dolls'
+      correctAnswer: 'Decaying dolls',
+      source: 'http://www.atlasobscura.com/places/la-isla-de-las-munecas'
     },
     {
       question: 'You can get _____ from a koala\'s cuddle.',
@@ -60,7 +64,8 @@ const STORE = {
         'A terrible, terrible rash',
         'Shocked'
       ],
-      correctAnswer: 'Chlamydia'
+      correctAnswer: 'Chlamydia',
+      source: 'http://io9.gizmodo.com/5920738/you-can-accidentally-get-an-std-from-a-koala'
     },
   ]
 };

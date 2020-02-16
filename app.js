@@ -256,7 +256,7 @@ function renderMainPage() {
       <article id="result">
         <h2>${gradeResults().title}</h2>
         <p>${gradeResults().message}</p>
-        <p>See all the facts <a href="https://www.buzzfeed.com/matwhitehead/gross-facts" target="_blank">here</a>!</p>
+        <p>*All the rude messages are <em>entirely</em> sarcastic.</p>
         <button class="btn btn-default btn-small" id="restart">Start Over</button>
       </article>
       `}
@@ -328,6 +328,7 @@ function renderFeedback() {
       </p>
       <p>Oh, well. 🤷‍♂️</p>
       `}
+      Find out more <a target="_blank" href="${q.source}">here</a>.
       <a href="#" id="nextButton" class="btn btn-alt">${isLastQuestion ? 'See my results' : 'Next Question'}</a>
     </article>
   </section>
