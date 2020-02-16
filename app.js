@@ -263,7 +263,7 @@ function renderMainPage() {
     </section>
     <section id="bottom">
       <div class="credits">
-        <h3>Quiz Against Humanity 1.1</h3>
+        <h3>Quiz Against Humanity ${STORE.appVesion}</h3>
         <p>
           Designed & developed by<br>
           <a id="rg" href="https://github.com/Vicious27" target="_blank">@vicious27</a> 

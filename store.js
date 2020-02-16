@@ -4,6 +4,8 @@
  */
 // eslint-disable-next-line no-unused-vars
 const STORE = {
+  appVesion: '1.1',
+
   quizStarted: false,
   questionNumber: 0,
   questionAnswered: false,
