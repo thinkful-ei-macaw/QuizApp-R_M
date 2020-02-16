@@ -256,7 +256,7 @@ function renderMainPage() {
       <article id="result">
         <h2>${gradeResults().title}</h2>
         <p>${gradeResults().message}</p>
-        <p>*All the rude messages are <em>entirely</em> sarcastic.</p>
+        <p>*All the rude messages are <em>entirely</em> sarcastic. 💖</p>
         <button class="btn btn-default btn-small" id="restart">Start Over</button>
       </article>
       `}

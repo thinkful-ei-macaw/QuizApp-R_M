@@ -269,8 +269,7 @@ main, .container {
 /* CARD STYLES */
 /* ==================================================== */
 
-.card {
-  cursor: pointer;        
+.card {      
   display: inline-flex;
   flex-direction: column;
   justify-content: space-between;
