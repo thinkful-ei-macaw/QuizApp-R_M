@@ -107,15 +107,15 @@ function gradeResults() {
   let obj = { title: '', message: '' };
   if (STORE.score >= .8 * STORE.questions.length) {
     obj.title = '🎉 Good job!';
-    obj.message = `You got ${STORE.score} question(s) correct!<br>
+    obj.message = `You got ${STORE.score} question${STORE.score !== 1 ? 's' : ''} correct!<br>
                   Someone should give you a ribbon!`;
   } else if (STORE.score >= .5 * STORE.questions.length) {
     obj.title = '😨 Wow...';
-    obj.message = `You only managed to get ${STORE.score} question(s) right.<br>
+    obj.message = `You only managed to get ${STORE.score} question${STORE.score !== 1 ? 's' : ''} right.<br>
                   Go read a book or something.`;
   } else if (STORE.score > 0) {
     obj.title = '🤔 Hmmm...';
-    obj.message = `It takes a certain kind of person to get only ${STORE.score} question(s) right.<br>
+    obj.message = `It takes a certain kind of person to get only ${STORE.score} question${STORE.score !== 1 ? 's' : ''} right.<br>
                   We're praying for you.`;
   } else {
     obj.title = '👀 Yikes...';
