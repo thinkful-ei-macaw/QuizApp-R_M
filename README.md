@@ -4,6 +4,7 @@ Live app [here](https://thinkful-ei-macaw.github.io/quiz-app-rm/)!
 Links to different wireframe screens:
 - [Start Screen](https://thinkful-ei-macaw.github.io/quiz-app-rm/wireframes/start-screen.html)
 - [Game Screen](https://thinkful-ei-macaw.github.io/quiz-app-rm/wireframes/game-screen.html)
+- [Game Screen (with feedback)](https://thinkful-ei-macaw.github.io/quiz-app-rm/wireframes/game-feedback-screen.html)
 - [Result Screen](https://thinkful-ei-macaw.github.io/quiz-app-rm/wireframes/result-screen.html)
 
 ## TODO:
