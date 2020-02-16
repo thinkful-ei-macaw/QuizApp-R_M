@@ -69,6 +69,10 @@ header {
   padding: 2rem;
 }
 
+header span {
+  display: block;
+}
+
 #info {
   text-align: right;
   position: fixed;
@@ -295,6 +299,8 @@ main, .container {
 .card input[type=submit]{
   font-size: .7em;
   font-weight: bold;
+  background: #DDDDDD;
+  color: #232323;
   padding: 1.2rem 1rem;
   margin: -1.2rem -1.2rem;
   width: calc(100% + 2.4rem);
